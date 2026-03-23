@@ -1,0 +1,19 @@
+{
+    "name": "TD Combo Countdown — v1b",
+    "description": "All v1 rules apply, with an additional condition requiring successively higher true highs for each sell countdown bar and successively lower true lows for each buy countdown bar",
+    "inherits": "td_combo_v1.json",
+  
+    "buy_countdown": {
+      "additional_condition": {
+        "description": "The true low of each countdown bar must be successively lower than the true low of the previous countdown bar",
+        "condition": "true_low[0] < true_low[previous_countdown_bar]"
+      }
+    },
+  
+    "sell_countdown": {
+      "additional_condition": {
+        "description": "The true high of each countdown bar must be successively higher than the true high of the previous countdown bar",
+        "condition": "true_high[0] > true_high[previous_countdown_bar]"
+      }
+    }
+  }
