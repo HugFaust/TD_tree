@@ -1,0 +1,18 @@
+{
+    "name": "Global Setup Rules",
+    "description": "Rules applicable to all setups regardless of type",
+  
+    "buy_setup": {
+      "condition": "close < close[-4]",
+      "minimum_bars": 9,
+      "consecutive": true,
+      "label": "buy setup"
+    },
+  
+    "sell_setup": {
+      "condition": "close > close[-4]",
+      "minimum_bars": 9,
+      "consecutive": true,
+      "label": "sell setup"
+    }
+  }

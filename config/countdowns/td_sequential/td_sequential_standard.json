@@ -1,0 +1,35 @@
+{}
+{
+    "name": "TD Sequential Countdown",
+    "description": "Countdown begins on bar 9 of a completed setup and counts to 13",
+  
+    "buy_countdown": {
+      "description": "Counts up from 1 to 13 during or after a buy setup",
+      "start": "bar 9 of the buy setup",
+      "condition": "close[0] <= low[-2]",
+      "bar_12": {
+        "description": "Bar 12 has a relaxed condition",
+        "condition": "open[0] <= low[-2] OR close[0] <= low[-2]"
+      },
+      "bar_13": {
+        "description": "Bar 13 qualifier — ensures the low of bar 13 is less than or equal to the close of bar 8",
+        "condition": "low[13] <= close[8]"
+      },
+      "progression": "each bar that satisfies the condition advances the count by 1, non-qualifying bars are skipped but do not reset the count"
+    },
+  
+    "sell_countdown": {
+      "description": "Counts up from 1 to 13 during or after a sell setup",
+      "start": "bar 9 of the sell setup",
+      "condition": "close[0] >= high[-2]",
+      "bar_12": {
+        "description": "Bar 12 has a relaxed condition",
+        "condition": "open[0] >= high[-2] OR close[0] >= high[-2]"
+      },
+      "bar_13": {
+        "description": "Bar 13 qualifier — ensures the high of bar 13 is greater than or equal to the close of bar 8",
+        "condition": "high[13] >= close[8]"
+      },
+      "progression": "each bar that satisfies the condition advances the count by 1, non-qualifying bars are skipped but do not reset the count"
+    }
+  }
